@@ -1,0 +1,32 @@
+name: Example
+packages:
+  LegacyInterface:
+    path: Example/Libraries/LegacyInterface
+  RouterService:
+    path: Example/Libraries/RouterService
+  RouterServiceInterface:
+    path: Example/Libraries/RouterServiceInterface
+  TodoList:
+    path: Example/Libraries/TodoList
+  TodoListInterface:
+    path: Example/Libraries/TodoListInterface
+targets:
+  Example:
+    type: application
+    platform: iOS
+    deploymentTarget: 16.1
+    settings:
+      CURRENT_PROJECT_VERSION: 1.0.0
+      MARKETING_VERSION: 1.0.0
+      PRODUCT_BUNDLE_IDENTIFIER: com.example.Example
+      INFOPLIST_FILE: Example/Libraries/App/Resources/Info.plist
+    sources:
+      - Example/Libraries/App/Sources
+      - Example/Libraries/App/Resources
+      - Example/Libraries/Legacy/Sources
+    dependencies:
+      - package: LegacyInterface
+      - package: RouterService
+      - package: RouterServiceInterface
+      - package: TodoList
+      - package: TodoListInterface
